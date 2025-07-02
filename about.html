@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Leandra Hall's Portfolio</title>
+    <link href="about.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet"> 
+  </head>
+</html>
+
+<body>
+    <button id="themeToggle" class="button" aria-label="Button to toggle dark and light mode for the website">Dark/Light Mode</button>
+    <div class="Title Section">
+        <img src="blonde logo.png" aria-label="Logo Header" id="logo"
+        alt="Left facing drawing of a Blonde Black woman with glasses. Bottom text reads Dioskurii" 
+        width="550" height="550" class="center">
+    </div>
+
+    <div class="Page Navigation" aria-label="Website Navigation Header">
+        <div class="center2">
+            <button type="button" class="button" id="homeButton"><a href= "home.html">Home</a></button>
+            <button type="button" class="button" id="aboutButton"><a href = "about.html">About</a></button>
+            <button type="button" class="button" id="projectsButton"><a href = "projects.html">Projects</a></button>
+        </div>  
+    </div>
+
+    <div class="artist-bio" aria-label="Artist biography section">
+        <div class="artist-text" aria-label="Artist biography text">
+            <h1 style="font-family: Roboto Flex, serif; " aria-label="Artist biography text: header">Hey! I'm Leandra or the artist known as DIOSKURII. </h1>
+            <p style="font-family: Roboto Flex, serif;" aria-label="Artist biography text: paragraph"> I am a traditional and digital artist who enjoys bringing characters and stories to life through my work. 
+                My work primarily focuses on underrepresented people in spaces such as Sci-Fi, Fantasy, and Mythology. 
+                Outside of art, I enjoy reading, writing, playing the guitar, listening to music, and being a quickplay warrior in Overwatch. 
+                If you are interested in commissioning me or reaching out about a project or collaboration please fill out the form below!</p>
+        </div>
+        
+        <div class="profileImage" aria-label="Image of the artist">
+            <img src="IMG_60431.jpg" alt="Profile Image">
+        </div>
+    </div>
+
+    <div class="container" aria-label="Contact form to reach artist">
+        <form action="action_page.php">
+      
+          <label for="fname">First Name (required)</label>
+          <input type="text" id="fname" name="firstname" required>
+      
+          <label for="lname">Last Name (required)</label>
+          <input type="text" id="lname" name="lastname" required >
+      
+          <label for="">Email (required)</label>
+          <input type="text" id="email" name="email" required>
+
+          <label for="Subject">Subject (required)</label>
+          <input type="text" id="subject" name="subject" required>
+
+          <label for="Message">Message (required)</label>
+          <textarea id="message" name="message" style="height:200px" required></textarea>
+      
+          <input type="submit" value="Submit">
+      
+        </form>
+      </div> 
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("themeToggle");
+        const body = document.body;
+
+        // Check localStorage for saved theme preference
+        if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+        }
+
+        // Toggle theme on button click
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+            localStorage.setItem("theme", theme); // Save preference
+        });
+    });
+
+    </script>
+
+</body>
