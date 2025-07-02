@@ -1,0 +1,468 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* Prevent padding/borders from affecting width */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Default (Light Mode) */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --image-url: url('blonde logo.png')
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --image-url: url('blonde logo 2.png')
+}
+
+/* Apply Theme Variables */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;   /* Button background color */
+    color: white;                /* Button text color */
+    border-radius: 5px;          /* Optional: Rounded corners */
+    transition: background-color 0.3s;
+}
+
+
+.title {
+    font-family: "Faculty Glyphic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    content: var(--image-url);
+}
+
+.button {
+    font-family: "Faculty Glyphic", sans-serif;
+    text-decoration: none; /* Ensures no underline for buttons */
+    background-color: var(--background-color); /* Green (or your color) */
+    border: none;
+    color: var(--text-color); /* Button text color */
+    padding: 15px 32px;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button a {
+    color: inherit;
+    text-decoration: none; 
+    display: block; 
+    width: 100%;
+    height: 100%; 
+}
+
+.Project-Buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Creates two equal-width columns */
+    gap: 15px;  /* Reduces the gap between images */
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Project-Buttons a {
+    display: block;  /* Ensures the anchor tags behave like block elements */
+    text-align: center;  /* Optional: centers the images inside the anchor tags */
+}
+
+.Project-Buttons img {
+    width: 625px;  /* Adjust the width of the images */
+    height: auto;  /* Maintain the aspect ratio */
+    object-fit: contain;  /* Ensure the images are contained within the specified width */
+    transition: transform 0.3s ease;
+    border-radius: 5%;  /* Optional: Smooth hover effect */
+}
+
+.Project-Buttons img:hover {
+    transform: scale(1.1);  /* Optional: Zoom effect on hover */
+}
+
+#space-cadet{
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: bold;
+
+}
+
+/* Increase size of the header */
+.space-header {
+    font-size: 55px; /* Adjust the font size */
+    font-weight: bold; /* Make the header bold (optional) */
+    line-height: 1.5; /* Increase line height for better readability */
+    font-family: "Faculty Glyphic", sans-serif;
+}
+
+/* Increase size of the text */
+.space-cadet-text p {
+    font-size: 18px;
+    font-family: "Faculty Glyphic", sans-serif; /* Adjust the font size */
+    line-height: 1.6; /* Increase line height for better readability */
+    max-width: 1250px; /* Limit width of text for easier reading */
+    margin: 10px 0; /* Add space between paragraphs */
+    font-style: italic;
+}
+
+/* Gallery container */
+.space-cadet-photos {
+    display: flex;
+    flex-wrap: wrap; /* Enables wrapping for images */
+    gap: 10px; /* Adds spacing between items */
+    margin: auto;
+    justify-content: center; /* Centers the gallery in the container */
+    max-width: 1200px; /* Sets a maximum width for the gallery */
+    padding: 10px;
+}
+
+/* Individual items */
+.item {
+    flex: 1 1 calc(25% - 20px); /* Four images per row with spacing */
+    box-sizing: border-box; /* Includes padding/border in width/height */
+    max-width: 350px; /* Ensures images don't exceed a specific width */
+}
+
+/* Images within items */
+.item img {
+    width: 100%; /* Makes images responsive */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures images fill the item container */
+    border-radius: 8px; /* Rounded corners for a clean look */
+    cursor: pointer; /* Changes cursor on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adds smooth hover effect */
+}
+
+/* Hover effect */
+.item img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .item {
+        flex: 1 1 calc(33.333% - 20px); /* Three images per row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item {
+        flex: 1 1 calc(50% - 20px); /* Two images per row */
+    }
+}
+/* Modal styles */
+.modal {
+    display: none; /* Initially hide the modal */
+    position: fixed;
+    z-index: 1; /* Sit on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%; /* Limit the width of the image inside the modal */
+    max-height: 90%; /* Limit the height of the image */
+    margin: auto;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#face-puzzle{
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: bold;
+
+}
+
+/* Increase size of the header */
+.face-header {
+    font-size: 60px; /* Adjust the font size */
+    font-weight: bold; /* Make the header bold (optional) */
+    line-height: 1.5; /* Increase line height for better readability */
+    font-family: "Faculty Glyphic", sans-serif;
+}
+
+/* Increase size of the text */
+.face-text p {
+    font-size: 18px;
+    font-family: "Faculty Glyphic", sans-serif; /* Adjust the font size */
+    line-height: 1.6; /* Increase line height for better readability */
+    max-width: 1250px; /* Limit width of text for easier reading */
+    margin: 10px 0; /* Add space between paragraphs */
+    font-style: italic;
+}
+/* Gallery container */
+.face-puzzle-photos {
+    column-count: 3; /* Adjust the number of columns */
+    column-gap: 10px; /* Space between columns */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Individual items */
+.item {
+    margin-bottom: 10px;
+    break-inside: avoid; /* Ensures images don't exceed a specific width */
+}
+
+/* Images within items */
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.item img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .item {
+        flex: 1 1 calc(33.333% - 20px); /* Three images per row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item {
+        flex: 1 1 calc(50% - 20px); /* Two images per row */
+    }
+}
+
+#gafas{
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: bold;
+
+}
+
+/* Increase size of the header */
+.gafas-header {
+    font-size: 60px; /* Adjust the font size */
+    font-weight: bold; /* Make the header bold (optional) */
+    line-height: 1.5; /* Increase line height for better readability */
+    font-family: "Faculty Glyphic", sans-serif;
+}
+
+/* Increase size of the text */
+.gafas-text p {
+    font-size: 18px;
+    font-family: "Faculty Glyphic", sans-serif; /* Adjust the font size */
+    line-height: 1.6; /* Increase line height for better readability */
+    max-width: 1250px; /* Limit width of text for easier reading */
+    margin: 10px 0; /* Add space between paragraphs */
+    font-style: italic;
+}
+/* Gallery container */
+.gafas-photos {
+    column-count: 3; /* Adjust the number of columns */
+    column-gap: 10px; /* Space between columns */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Individual items */
+.item {
+    margin-bottom: 10px;
+    break-inside: avoid;/* Ensures images don't exceed a specific width */
+}
+
+/* Images within items */
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+
+}
+
+/* Hover effect */
+.item img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .item {
+        flex: 1 1 calc(33.333% - 20px); /* Three images per row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item {
+        flex: 1 1 calc(50% - 20px); /* Two images per row */
+    }
+}
+
+#heavenly-bodies{
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: bold;
+
+}
+
+/* Increase size of the header */
+.heavenly-bodies-header {
+    font-size: 60px; /* Adjust the font size */
+    font-weight: bold; /* Make the header bold (optional) */
+    line-height: 1.5; /* Increase line height for better readability */
+    font-family: "Faculty Glyphic", sans-serif;
+}
+
+/* Increase size of the text */
+.heavenly-bodies-text p {
+    font-size: 18px;
+    font-family: "Faculty Glyphic", sans-serif; /* Adjust the font size */
+    line-height: 1.6; /* Increase line height for better readability */
+    max-width: 1250px; /* Limit width of text for easier reading */
+    margin: 10px 0; /* Add space between paragraphs */
+    font-style: italic;
+}
+/* Gallery container */
+.heavenly-bodies-photos {
+    column-count: 3; /* Adjust the number of columns */
+    column-gap: 10px; /* Space between columns */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Individual items */
+.item {
+    margin-bottom: 10px;
+    break-inside: avoid;/* Ensures images don't exceed a specific width */
+}
+
+/* Images within items */
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+
+}
+
+/* Hover effect */
+.item img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .item {
+        flex: 1 1 calc(33.333% - 20px); /* Three images per row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item {
+        flex: 1 1 calc(50% - 20px); /* Two images per row */
+    }
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    display: block;
+    margin: auto; /* Centers the image horizontally */
+    max-width: 90%; /* Ensure the image doesn't exceed 90% of the window width */
+    max-height: 90%; /* Ensure the image doesn't exceed 90% of the window height */
+    object-fit: contain; /* Keeps aspect ratio intact */
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Close Button Hover */
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Leandra Hall's Portfolio</title>
+    <link href="home.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet"> 
+  </head>
+</html>
+
+<body>
+    <button id="themeToggle" class="button" aria-label="Button to toggle dark and light mode for the website">Dark/Light Mode</button>
+
+    <div class="Title Section">
+        <img src="blonde logo.png" aria-label="Logo Header" id="logo"
+        alt="Left facing drawing of a Blonde Black woman with glasses. Bottom text reads Dioskurii" 
+        width="550" height="550" class="center">
+    </div>
+
+    <div class="Page Navigation" aria-label="Website Navigation Header" >
+        <div class="center2">
+            <button type="button" class="button" id="homeButton" alt="Home Button"><a href= "home.html">Home</a></button>
+            <button type="button" class="button" id="aboutButton" alt="About Button"><a href = "about.html">About</a></button>
+            <button type="button" class="button" id="projectsButton" alt="Projects Button"><a href = "projects.html">Projects</a></button>
+        </div>  
+    </div>
+
+    <div class="masonry" aria-label="Image gallery of art">
+        <div class="item item1">
+            <img src="HB Series Moon Rework.png" alt="">
+        </div>
+        <div class="item item2">
+            <img src="red moon.png" alt="woman">
+        </div>
+        <div class="item item3">
+            <img src="clyt redraw.png" alt="woman">
+        </div>
+        <div class="item item4">
+            <img src="HB Series Earth Rework.png" alt="woman">
+        </div>
+        <div class="item item5">
+            <img src="Moon and Sun.png" alt="woman">
+        </div>
+        <div class="item item6">
+            <img src="Heavenly Bodies Neptune and Pluto.png" alt="woman">
+        </div>
+        <div class="item item7">
+            <img src="HB Series Saturn.png" alt="woman">
+        </div>
+        <div class="item item8">
+            <img src="Leandra Hall Black Cake Creative Component.png" alt="woman">
+        </div>
+        <div class="item item9">
+            <img src="As the World Falls Down 1.png" alt="woman">
+        </div>
+        <div class="item item10">
+            <img src="HB Series Sun Final Rework.png" alt="woman">
+        </div>
+        <div class="item item11">
+            <img src=" HB Series Jupiter.png" alt="woman">
+        </div>
+        <div class="item item12">
+            <img src="HB Series Venus.png" alt="woman">
+        </div>
+        <div class="item item13">
+            <img src="HB Series Neptune.png" alt="woman">
+        </div>
+        <div class="item item14">
+            <img src="HB Series Mars.png" alt="woman">
+        </div>
+        <div class="item item15">
+            <img src="HB Series Sun and Moon 3.png" alt="woman">
+        </div>
+        <div class="item item16">
+            <img src="HB Series Uranus.png" alt="woman">
+        </div>
+        <div class="item item17">
+            <img src="HB Series Mercury.png" alt="woman">
+        </div>
+        <div class="item item18">
+            <img src="ahzula.png" alt="woman">
+        </div>
+        <div class="item item19">
+            <img src="Seniors Shirt Design 2 Back.png" alt="woman">
+        </div>
+        <div class="item item20">
+            <img src="HB Series Jupiter and Saturn.png" alt="woman">
+        </div>
+        <div class="item item21">
+            <img src="HB Series Mars and Earth.png" alt="woman">
+        </div>
+        <div class="item item22">
+            <img src="HB Series Venus and Mercury (draft).png" alt="woman">
+        </div>
+        <div class="item item23">
+            <img src="Heavenly Bodies Uranus Neptune and Pluto (Draft).png" alt="woman">
+        </div>
+        <div class="item item24">
+            <img src="Clyt Individual Art.png" alt="woman">
+        </div>
+        <div class="item item25">
+            <img src="HB Series Pluto.png" alt="woman">
+        </div>
+        <div class="item item26">
+            <img src="Hermes b.png" alt="woman">
+        </div>
+        <div class="item item27">
+            <img src="Isurus Marine Tile Design.png" alt="woman">
+        </div>
+        <div class="item item28">
+            <img src="niqstor.png" alt="woman">
+        </div>
+        <div class="item item29">
+            <img src="Yort Bort.png" alt="woman">
+        </div>
+        <div class="item item30">
+            <img src="Poly Sketch.jpeg" alt="woman">
+        </div>
+        <div class="item item31">
+            <img src="Doodle For Google.png" alt="woman">
+        </div>
+        <div class="item item32">
+            <img src="cas redesign.png" alt="woman">
+        </div>
+        <div class="item item33">
+            <img src="castor new hair.png" alt="woman">
+        </div>
+        <div class="item item34">
+            <img src="KYMO.png" alt="woman">
+        </div>
+        <div class="item item35">
+            <img src="ANGEL CAS.png" alt="woman">
+        </div>
+
+    </div>
+
+    <div id="myModal" class="modal" aria-label="Modal view to enlarge view of image">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("themeToggle");
+        const body = document.body;
+
+        // Check localStorage for saved theme preference
+        if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+        }
+
+        // Toggle theme on button click
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            const theme = body.classList.contains("dark-mode") ? "dark" : "light";
+            localStorage.setItem("theme", theme); // Save preference
+        });
+    });
+
+    </script>
+
+
+</body>
